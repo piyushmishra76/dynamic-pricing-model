@@ -1,5 +1,11 @@
 # Dynamic Pricing Prediction System
+## Live Demo
 
+Deployed API:
+
+https://dynamic-pricing-model-api-deployed.onrender.com/docs
+
+You can test ride cost prediction directly using the FastAPI Swagger interface.
 ## Project Overview
 
 This project predicts the **ride cost** in a dynamic pricing system using machine learning.
