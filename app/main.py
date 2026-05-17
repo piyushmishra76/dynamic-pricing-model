@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import joblib
 import pandas as pd
-
+import os
 
 # Create FastAPI app
 app = FastAPI(
@@ -16,12 +16,28 @@ app = FastAPI(
 
 
 # Load model and preprocessor
-model = joblib.load(
-    "models\dynamic_pricing_model.pkl"
+BASE_DIR = os.path.dirname(
+    os.path.dirname(
+        os.path.abspath(__file__)
+    )
 )
 
+model_path = os.path.join(
+    BASE_DIR,
+    "models",
+    "dynamic_pricing_model.pkl"
+)
+
+preprocessor_path = os.path.join(
+    BASE_DIR,
+    "models",
+    "preprocessor.pkl"
+)
+
+model = joblib.load(model_path)
+
 preprocessor = joblib.load(
-    "models\preprocessor.pkl"
+    preprocessor_path
 )
 
 
